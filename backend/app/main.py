@@ -114,11 +114,10 @@ async def read_root(request: Request):
     rate_limiter(request)
     return {"message": "Welcome to SafeSpace AI"}
 
-# Include authentication routes
-app.include_router(auth_router, prefix="/auth")
-
-# Include analysis routes with rate limiting
-@app.get("/api/v1/analysis")
-async def analysis(request: Request):
+# POST route for /api/v1/analysis (to match frontend)
+@app.post("/api/v1/analysis")
+async def create_analysis(request: Request, payload: dict):
     rate_limiter(request)
-    return {"message": "Analysis endpoint with basic rate-limiting"}
+    # You can implement actual analysis logic here
+    print(f"Received analysis payload: {payload}")
+    return {"message": "Analysis request received", "data": payload}
