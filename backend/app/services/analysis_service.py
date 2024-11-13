@@ -14,9 +14,6 @@ class AnalysisService:
         try:
             load_dotenv()
             script_dir = os.path.dirname(os.path.abspath(__file__))
-            # os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = os.path.join(script_dir, "shebuildai-c44b16cb6d94.json")
-            
-            # api_key = "AIzaSyDOCZ3cYkxzxh7A77Bx635GF7rt841n5lA"
             script_dir = os.path.dirname(os.path.abspath(__file__))
             credentials_path = os.path.join(script_dir, os.getenv("GOOGLE_APPLICATION_CREDENTIALS"))
             os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = credentials_path
