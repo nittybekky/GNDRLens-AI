@@ -1,0 +1,5 @@
+.env
+node_modules
+venv
+shebuildai-c44b16cb6d94.json
+.gitignore
