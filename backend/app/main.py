@@ -89,7 +89,7 @@ async def startup():
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "https://yourfrontend.vercel.app"],  # Adjust for your frontend URLs
+    allow_origins=["http://localhost:5173", "https://gndrlens-ai.netlify.app/"],  # Adjust for your frontend URLs
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
