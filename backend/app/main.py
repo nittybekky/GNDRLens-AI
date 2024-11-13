@@ -95,6 +95,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.include_router(
+    analysis_router,
+    prefix="/api/v1/analysis",
+    tags=["analysis"],
+)
+
 # In-memory rate limiter function
 def rate_limiter(request: Request):
     client_ip = request.client.host
