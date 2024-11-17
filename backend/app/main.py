@@ -69,7 +69,7 @@ from app.models.analysis import Analysis
 from app.routes.auth import router as auth_router
 from app.routes.analysis import router as analysis_router  
 
-app = FastAPI(title="SafeSpace AI")
+app = FastAPI(title="GNDRLens-AI")
 
 # Optional: Basic in-memory rate limiter setup
 request_counts = defaultdict(list)
@@ -89,7 +89,7 @@ async def startup():
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "https://gndrlens-ai.netlify.app/"],  # Adjust for your frontend URLs
+    allow_origins=["http://localhost:5173", "https://gndrlens-ai.netlify.app"],  # Adjust for your frontend URLs
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -118,7 +118,7 @@ def rate_limiter(request: Request):
 @app.get("/")
 async def read_root(request: Request):
     rate_limiter(request)
-    return {"message": "Welcome to SafeSpace AI"}
+    return {"message": "Welcome to GNDRLens-AI"}
 
 # POST route for /api/v1/analysis (to match frontend)
 @app.post("/api/v1/analysis")
